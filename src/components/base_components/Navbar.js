@@ -1,7 +1,7 @@
 
-import Image from "next/image";
+import Image from "next/image"; //Image is an in-built component for dispalying images in nextJs
 
-
+//An array of items on the navigation bar
 const navItems = [
   {
     icon: "/assets/Untitled/nav2/dashboard_active.png",
@@ -12,7 +12,7 @@ const navItems = [
     link: "Transaction Details",
   },
   {
-    icon: "/assets/Untitled/nav2/reprint.png",
+    icon: "/assets/Untitled/nav2/summary.png",
     link: "Transaction Summary",
   },
   {
@@ -24,20 +24,24 @@ const navItems = [
     link: "Tickets Report",
   },
   {
-    icon: "/assets/Untitled/nav2/summary.png",
+    icon: "/assets/Untitled/nav2/reprint.png",
     link: "Reprint",
   },
 ];
 export default function Navbar() {
 
   return (
+
+    //Navigation bar container starts here
     <div className="bg-white">
+
+      {/* First layer of the navigation bar starts here */}
       <div className="flex w-full justify-between px-20 py-5 items-center border-b border-b-grey">
         <Image
           src={"/assets/Untitled/logo.png"}
           width={100}
           height={100}
-          alt="Picture of the author"
+          alt="logo"
         />
         <div className="flex gap-10 items-center">
           <p className="font-bold">Settings</p>
@@ -46,10 +50,15 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      <div className="flex w-full justify-between px-20 py-5">
-        {navItems.map((items) => {
+      {/* first layer ends here */}
+
+
+      {/* Second layer starts here */}
+      <div className="flex w-full justify-between px-[100px] py-2">
+        {/* Items array rendered here using the array.map js function */}
+        {navItems.map((items, index) => {
           return (
-            <div className="flex gap-2">
+            <div key={index} className={`flex items-center gap-2 cursor-pointer ${index === 0 ? 'bg-gradient-to-l from-[#FF9900] to-[#FFD584] px-3 rounded-lg text-white py-2' : ''}`}>
               <Image
                 src={items.icon}
                 width={20}
@@ -61,6 +70,8 @@ export default function Navbar() {
           );
         })}
       </div>
+      {/* Second layer ends here */}
     </div>
+    // Navigation container ends here
   );
 }

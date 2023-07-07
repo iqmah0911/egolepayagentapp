@@ -1,0 +1,99 @@
+import React from "react";
+import Image from "next/image";
+import Button from "../base_components/Button";
+import formatDigits from "../base_components/formatNumber";
+import BaseTitle from "../base_components/baseTitle";
+
+const Overview = () => {
+  const transactions = [
+    {
+      icon: "/assets/Untitled/balance.png",
+      title: "Wallet Balance",
+      balance: "123456000",
+    },
+    {
+      icon: "/assets/Untitled/deposits.png",
+      title: "Deposits",
+      balance: "123456000",
+    },
+    {
+      icon: "/assets/Untitled/trx-count.png",
+      title: "Transaction Count",
+      balance: "1234",
+    },
+    {
+      icon: "/assets/Untitled/trx-value.png",
+      title: "Transaction Value",
+      balance: "123456000",
+    },
+  ];
+  return (
+    <div className="flex gap-5 w-full">
+      <div className="bg-gradient-to-r shadow-md from-[#FF9900] to-[#FFD584] p-5 w-[30%] rounded-xl">
+        <div className="flex justify-between items-center">
+          <h3 className="text-[#444444] font-bold text-lg">Hello Firstname</h3>
+          <div className="flex justify-between gap-1 items-center">
+            <p className="text-sm text-[#994D00] font-[500]">Agent</p>
+            <Image
+              src={"/assets/Untitled/Verified.png"}
+              width={12}
+              height={12}
+              alt="verified"
+            />
+          </div>
+        </div>
+
+        <div className="flex mt-5 items-center justify-between">
+          <div className="">
+            <div>
+              <h2 className="text-white text-xl">Egole MFB</h2>
+              <p className="text-xs text-[#333333] font-bold">bank</p>
+            </div>
+            <div>
+              <h2 className="text-white text-xl">123456789</h2>
+              <p className="text-xs text-[#333333] font-bold">Account Number</p>
+            </div>
+            <div></div>
+          </div>
+          <div>
+            <Image
+              src={"/assets/Untitled/bankgrey.png"}
+              width={100}
+              height={100}
+              alt="bank"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white shadow-md w-[70%] rounded-xl p-5">
+        <div>
+          <div className="flex justify-between items-center">
+            <BaseTitle title={"Transactions"}/>
+            <Button style={""} text={"Fund Wallet"} />
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between w-full mt-3">
+        {transactions.map((items, index) => {
+          return (
+              <div key={index}>
+                <Image
+                  src={items.icon}
+                  width={50}
+                  height={50}
+                  alt={items.title}
+                />
+                <p className="font-bold text-[#333333]">{`${index === 2 ? '' : '₦'}${formatDigits(items.balance)}`}</p>
+                <h1 className="text-sm">{items.title}</h1>
+              </div>
+          );
+        })}
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default Overview;
