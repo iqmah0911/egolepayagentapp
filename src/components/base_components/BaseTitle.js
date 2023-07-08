@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const BaseTitle = ({title}) => {
   return (
-    <div className="flex gap-5 items-center">
+    <div className="flex gap-3 items-center">
       <h1 className="font-bold text-lg text-[#994D00]">{title}</h1>
       <Image
         src={"/assets/Untitled/rectangle.png"}

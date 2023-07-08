@@ -36,7 +36,7 @@ export default function Navbar() {
     <div className="bg-white">
 
       {/* First layer of the navigation bar starts here */}
-      <div className="flex w-full justify-between px-20 py-5 items-center border-b border-b-grey">
+      <div className="flex w-full justify-between px-[80px] py-5 items-center border-b border-b-grey">
         <Image
           src={"/assets/Untitled/logo.png"}
           width={100}
@@ -54,7 +54,7 @@ export default function Navbar() {
 
 
       {/* Second layer starts here */}
-      <div className="flex w-full justify-between px-[100px] py-2">
+      <div className="flex w-full justify-between px-[161px] py-2">
         {/* Items array rendered here using the array.map js function */}
         {navItems.map((items, index) => {
           return (

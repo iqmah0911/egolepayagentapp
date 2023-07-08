@@ -29,7 +29,7 @@ const Overview = () => {
   ];
   return (
     <div className="flex gap-5 w-full">
-      <div className="bg-gradient-to-r shadow-md from-[#FF9900] to-[#FFD584] p-5 w-[30%] rounded-xl">
+      <div className="bg-gradient-to-r shadow-md from-[#FF9900] to-[#FFD584] py-[25px] px-[35px] w-[30%] rounded-xl">
         <div className="flex justify-between items-center">
           <h3 className="text-[#444444] font-bold text-lg">Hello Firstname</h3>
           <div className="flex justify-between gap-1 items-center">
@@ -45,7 +45,7 @@ const Overview = () => {
 
         <div className="flex mt-5 items-center justify-between">
           <div className="">
-            <div>
+            <div className="mb-3">
               <h2 className="text-white text-xl">Egole MFB</h2>
               <p className="text-xs text-[#333333] font-bold">bank</p>
             </div>
@@ -66,7 +66,7 @@ const Overview = () => {
         </div>
       </div>
 
-      <div className="bg-white shadow-md w-[70%] rounded-xl p-5">
+      <div className="bg-white shadow-md w-[70%] rounded-xl px-[35px] py-[25px]">
         <div>
           <div className="flex justify-between items-center">
             <BaseTitle title={"Transactions"}/>
