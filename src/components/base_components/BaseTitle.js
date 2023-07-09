@@ -1,3 +1,4 @@
+
 import React from "react";
 import Image from "next/image";
 
@@ -10,7 +11,7 @@ const BaseTitle = ({ title }) => {
           src={"/assets/Untitled/rectangle.png"}
           width={400}
           height={0}
-          alt="..."
+          alt="swiper"
         />
       </div>
     </div>
