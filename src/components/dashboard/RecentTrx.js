@@ -40,8 +40,8 @@ const RecentTrx = () => {
   ];
 
   return (
-    <div className="flex gap-5">
-      <div className="bg-white px-[30px] py-[25px] rounded-xl shadow-md w-[50%]">
+    <div className="flex flex-col lg:flex-row w-full gap-5">
+      <div className="bg-white px-[30px] py-[25px] rounded-xl shadow-md w-full lg:w-[50%]">
         <div className="w-full mb-5">
           <BaseTitle title={"Today's Transactions"} />
         </div>
@@ -76,7 +76,7 @@ const RecentTrx = () => {
             </table>
         </div>   
       </div>
-      <div className="bg-white px-[30px] py-[25px] rounded-xl shadow-md w-[50%]">
+      <div className="bg-white px-[30px] py-[25px] rounded-xl shadow-md w-full lg:w-[50%]">
         <div className="w-full">
           <BaseTitle title={"Quick Report"} />
         </div>

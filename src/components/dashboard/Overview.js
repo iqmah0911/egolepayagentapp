@@ -28,8 +28,8 @@ const Overview = () => {
     },
   ];
   return (
-    <div className="flex gap-5 w-full">
-      <div className="bg-gradient-to-r shadow-md from-[#FF9900] to-[#FFD584] py-[25px] px-[35px] w-[30%] rounded-xl">
+    <div className="flex flex-col lg:flex-row gap-5 w-full">
+      <div className="bg-gradient-to-r shadow-md from-[#FF9900] to-[#FFD584] py-[25px] px-[35px] lg:w-[30%] w-full rounded-xl">
         <div className="flex justify-between items-center">
           <h3 className="text-[#444444] font-bold text-lg">Hello Firstname</h3>
           <div className="flex justify-between gap-1 items-center">
@@ -66,7 +66,7 @@ const Overview = () => {
         </div>
       </div>
 
-      <div className="bg-white shadow-md w-[70%] rounded-xl px-[35px] py-[25px]">
+      <div className="bg-white shadow-md  lg:w-[70%] w-full rounded-xl px-[35px] py-[25px]">
         <div>
           <div className="flex justify-between items-center">
             <BaseTitle title={"Transactions"}/>
@@ -74,7 +74,7 @@ const Overview = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between w-full mt-3">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between justify-center w-full mt-3">
         {transactions.map((items, index) => {
           return (
               <div key={index}>

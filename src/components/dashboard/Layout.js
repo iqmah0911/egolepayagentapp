@@ -6,7 +6,7 @@ import RecentTrx from "./RecentTrx"
 
 export default function Layout()  {
     return (
-        <div className="px-[80px] py-5">
+        <div className="lg:px-[80px] px-[30px] pt-[170px] w-full">
             <Overview/>
             <QuickActions/>
             <RecentTrx/>

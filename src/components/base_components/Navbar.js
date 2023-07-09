@@ -33,10 +33,10 @@ export default function Navbar() {
   return (
 
     //Navigation bar container starts here
-    <div className="bg-white">
+    <div className="bg-white fixed w-full shadow-md">
 
       {/* First layer of the navigation bar starts here */}
-      <div className="flex w-full justify-between px-[80px] py-5 items-center border-b border-b-grey">
+      <div className="flex w-full justify-between lg:px-[80px] px-[20px] py-5 items-center border-b border-b-grey">
         <Image
           src={"/assets/Untitled/logo.png"}
           width={100}
@@ -54,7 +54,7 @@ export default function Navbar() {
 
 
       {/* Second layer starts here */}
-      <div className="flex w-full justify-between px-[161px] py-2">
+      <div className="flex lg:flex-row w-full lg:visible invisible justify-between lg:px-[161px] lg:py-2">
         {/* Items array rendered here using the array.map js function */}
         {navItems.map((items, index) => {
           return (
