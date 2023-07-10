@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import BaseTitle from "../base_components/baseTitle";
+import BaseTitle from "../base_components/BaseTitle";
 
 const QuickActions = () => {
   const actions = [

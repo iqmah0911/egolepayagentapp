@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Button from "../base_components/Button";
 import formatDigits from "../base_components/formatNumber";
-import BaseTitle from "../base_components/baseTitle";
+import BaseTitle from "../base_components/BaseTitle";
 
 const Overview = () => {
   const transactions = [
@@ -74,7 +74,7 @@ const Overview = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between justify-center w-full mt-3">
+        <div className="lg:flex grid grid-cols-1 gap-4 lg:flex-row lg:items-center lg:justify-between justify-center w-full mt-3">
         {transactions.map((items, index) => {
           return (
               <div key={index}>

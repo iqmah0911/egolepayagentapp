@@ -1,6 +1,6 @@
 
 import React from "react";
-import BaseTitle from "../base_components/baseTitle";
+import BaseTitle from "../base_components/BaseTitle";
 import formatDigits from "../base_components/formatNumber";
 
 const RecentTrx = () => {
