@@ -50,9 +50,9 @@ const RecentTrx = () => {
                 <thead className="w-full">
                     <tr className="w-full bg-[#ECECEC]">
                         {
-                            tableHeader.map((headers)=>{
+                            tableHeader.map((headers, index)=>{
                                 return (
-                                    <th className="border-slate-600 text-sm uppercase whitespace-nowrap py-2 px-2 text-left font-bold">{headers}</th>
+                                    <th key={index} className="border-slate-600 text-sm uppercase whitespace-nowrap py-2 px-2 text-left font-bold">{headers}</th>
                                 )
                             })
                         }

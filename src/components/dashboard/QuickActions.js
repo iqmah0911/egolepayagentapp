@@ -55,7 +55,7 @@ const QuickActions = () => {
             {actions.map((items, index) => {
               return (
                 <div key={index} className="cursor-pointer min-w-[100px] min-h-[84px] flex rounded-lg gap-2 p-[20px] items-center bg-gradient-to-r from-[#FF9900] to-[#FFD584]">
-                  <Image src={items.icon} width={30} height={30} />
+                  <Image src={items.icon} width={30} height={30} alt="..." />
                   <p className="font-bold leading-5 text-[#333333]">
                     {items.action}
                   </p>
@@ -75,6 +75,7 @@ const QuickActions = () => {
                 width={50}
                 height={50}
                 src={"/assets/Untitled/bankorng.png"}
+                alt="..."
               />
               <p className="font-bold text-[#333333]">To bank</p>
             </div>
@@ -83,6 +84,7 @@ const QuickActions = () => {
                 width={50}
                 height={50}
                 src={"/assets/Untitled/wallet.png"}
+                alt="..."
               />
               <p className="font-bold text-[#333333]">To Wallet</p>
             </div>
