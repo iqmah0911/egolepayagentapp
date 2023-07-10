@@ -52,9 +52,9 @@ const QuickActions = () => {
         <div className="bg-white px-[35px] py-[25px] lg:w-[80%] rounded-xl shadow-md">
           <BaseTitle title={"Quick Actions"} />
           <div className="grid lg:grid-cols-4 lg:gap-4 grid-cols-1 gap-3 items-center mt-5">
-            {actions.map((items) => {
+            {actions.map((items, index) => {
               return (
-                <div className="cursor-pointer min-w-[100px] min-h-[84px] flex rounded-lg gap-2 p-[20px] items-center bg-gradient-to-r from-[#FF9900] to-[#FFD584]">
+                <div key={index} className="cursor-pointer min-w-[100px] min-h-[84px] flex rounded-lg gap-2 p-[20px] items-center bg-gradient-to-r from-[#FF9900] to-[#FFD584]">
                   <Image src={items.icon} width={30} height={30} />
                   <p className="font-bold leading-5 text-[#333333]">
                     {items.action}
