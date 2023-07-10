@@ -74,7 +74,7 @@ const Overview = () => {
           </div>
         </div>
 
-        <div className="lg:flex grid grid-cols-1 gap-4 lg:flex-row lg:items-center lg:justify-between justify-center w-full mt-3">
+        <div className="lg:flex grid grid-cols-2 gap-5 lg:flex-row lg:items-center lg:justify-between justify-center w-full mt-3">
         {transactions.map((items, index) => {
           return (
               <div key={index}>

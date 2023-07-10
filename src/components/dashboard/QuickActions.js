@@ -51,12 +51,12 @@ const QuickActions = () => {
       <div className="flex flex-col lg:flex-row lg:justify-between justify-center w-full gap-5 py-5">
         <div className="bg-white px-[35px] py-[25px] lg:w-[80%] rounded-xl shadow-md">
           <BaseTitle title={"Quick Actions"} />
-          <div className="grid lg:grid-cols-4 lg:gap-4 grid-cols-1 gap-3 items-center mt-5">
+          <div className="grid lg:grid-cols-4 lg:gap-4 grid-cols-2 gap-3 items-center mt-5">
             {actions.map((items, index) => {
               return (
-                <div key={index} className="cursor-pointer min-w-[100px] min-h-[84px] flex rounded-lg gap-2 p-[20px] items-center bg-gradient-to-r from-[#FF9900] to-[#FFD584]">
+                <div key={index} className="cursor-pointer lg:min-w-[100px] min-h-[84px] flex rounded-lg gap-2 lg:p-[20px] p-[10px] items-center bg-gradient-to-r from-[#FF9900] to-[#FFD584]">
                   <Image src={items.icon} width={30} height={30} alt="..." />
-                  <p className="font-bold leading-5 text-[#333333]">
+                  <p className="font-bold lg:text-lg text-xs leading-5 text-[#333333]">
                     {items.action}
                   </p>
                 </div>

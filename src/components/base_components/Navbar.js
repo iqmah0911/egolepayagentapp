@@ -1,5 +1,5 @@
-
 import Image from "next/image"; //Image is an in-built component for dispalying images in nextJs
+import { useState } from "react";
 
 //An array of items on the navigation bar
 const navItems = [
@@ -28,13 +28,14 @@ const navItems = [
     link: "Reprint",
   },
 ];
+
 export default function Navbar() {
+  const [toggle, setToggle] = useState(false);
+  const [style, setStyle] = useState("");
 
   return (
-
     //Navigation bar container starts here
     <div className="bg-white fixed w-full shadow-md">
-
       {/* First layer of the navigation bar starts here */}
       <div className="flex w-full justify-between lg:px-[80px] px-[20px] py-5 items-center border-b border-b-grey">
         <Image
@@ -52,20 +53,46 @@ export default function Navbar() {
       </div>
       {/* first layer ends here */}
 
-
       {/* Second layer starts here */}
       <div className="flex lg:flex-row w-full lg:visible invisible justify-between lg:px-[161px] lg:py-2">
         {/* Items array rendered here using the array.map js function */}
         {navItems.map((items, index) => {
           return (
-            <div key={index} className={`flex items-center gap-2 cursor-pointer ${index === 0 ? 'bg-gradient-to-l from-[#FF9900] to-[#FFD584] px-3 rounded-lg text-white py-2' : ''}`}>
-              <Image
-                src={items.icon}
-                width={20}
-                height={20}
-                alt={items.link}
-              />
+            <div
+              key={index}
+              className={`flex items-center gap-2 cursor-pointer ${
+                index === 0
+                  ? "bg-gradient-to-l from-[#FF9900] to-[#FFD584] px-3 rounded-lg text-white py-2"
+                  : "hover:bg-gradient-to-l from-[#FF9900] to-[#FFD584] px-3 rounded-lg hover:text-white py-2"
+              }`}
+            >
+              <Image src={items.icon} width={20} height={20} alt={items.link} />
               <p className="text-sm">{items.link}</p>
+              {items.link === "Tickets Report" && (
+                <div className="relative">
+                  <div
+                    className={`${style}`}
+                    onClick={() => {
+                      setToggle((prevState) => !prevState);
+                      setStyle((prevState) =>
+                        prevState === "" ? "rotate-180" : ""
+                      );
+                    }}
+                  >
+                    <Image
+                      src={"/assets/Untitled/drop_down.png"}
+                      width={20}
+                      height={20}
+                      alt="empty"
+                    />
+                  </div>
+                  {toggle && (
+                    <div className="bg-white shadow-md top-[20px] right-[25px] px-[50px] py-2 absolute text-black">
+                      ...
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           );
         })}
