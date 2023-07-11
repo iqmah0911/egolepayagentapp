@@ -32,6 +32,7 @@ const navItems = [
 export default function Navbar() {
   const [toggle, setToggle] = useState(false);
   const [style, setStyle] = useState("");
+  const [burger, setBurger] = useState("hidden");
 
   return (
     //Navigation bar container starts here
@@ -44,17 +45,27 @@ export default function Navbar() {
           height={100}
           alt="logo"
         />
-        <div className="flex gap-10 items-center">
+        <div className="flex gap-5 items-center">
           <p className="font-bold">Settings</p>
           <div className="bg-[#FF8F0B] px-2 py-1 rounded-full">
             <p className="text-white">BE</p>
+          </div>
+          <div
+            onClick={() => {
+              setBurger((prevState) => (prevState === "hidden" ? "block" : "hidden"));
+            }}
+            className="gap-1 flex flex-col block lg:hidden"
+          >
+            <div className="bg-[#FF8F0B] h-[3px] w-[24px]"></div>
+            <div className="bg-[#FF8F0B] h-[3px] w-[24px]"></div>
+            <div className="bg-[#FF8F0B] h-[3px] w-[24px]"></div>
           </div>
         </div>
       </div>
       {/* first layer ends here */}
 
       {/* Second layer starts here */}
-      <div className="flex lg:flex-row w-full lg:visible invisible justify-between lg:px-[161px] lg:py-2">
+      <div className={`flex flex-col lg:flex-row w-full ${burger} justify-between px-[10px] py-[20px] lg:px-[161px] lg:py-2`}>
         {/* Items array rendered here using the array.map js function */}
         {navItems.map((items, index) => {
           return (
