@@ -16,7 +16,7 @@ const navItems = [
     link: "Transaction Summary",
   },
   {
-    icon: "/assets/Untitled/nav2/wallet.png",
+    icon: "/assets/Untitled/nav2/purse.png",
     link: "Wallet Report",
   },
   {
