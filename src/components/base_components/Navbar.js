@@ -1,3 +1,4 @@
+
 import Image from "next/image"; //Image is an in-built component for dispalying images in nextJs
 import { useState } from "react";
 
@@ -32,13 +33,13 @@ const navItems = [
 export default function Navbar() {
   const [toggle, setToggle] = useState(false);
   const [style, setStyle] = useState("");
-  const [burger, setBurger] = useState("hidden");
+  const [burger, setBurger] = useState("invisible");
 
   return (
     //Navigation bar container starts here
-    <div className="bg-white fixed w-full shadow-md">
+    <div className="fixed w-full">
       {/* First layer of the navigation bar starts here */}
-      <div className="flex w-full justify-between lg:px-[80px] px-[20px] py-5 items-center border-b border-b-grey">
+      <div className="bg-white shadow-md flex w-full justify-between lg:px-[80px] px-[20px] py-5 items-center border-b border-b-grey">
         <Image
           src={"/assets/Untitled/logo.png"}
           width={100}
@@ -52,7 +53,7 @@ export default function Navbar() {
           </div>
           <div
             onClick={() => {
-              setBurger((prevState) => (prevState === "hidden" ? "block" : "hidden"));
+              setBurger((prevState) => (prevState === "invisible" ? "visible transition duration-700 ease-in-out" : "invisible"));
             }}
             className="gap-1 flex flex-col block lg:hidden"
           >
@@ -65,7 +66,7 @@ export default function Navbar() {
       {/* first layer ends here */}
 
       {/* Second layer starts here */}
-      <div className={`flex flex-col lg:flex-row w-full ${burger} justify-between px-[10px] py-[20px] lg:px-[161px] lg:py-2`}>
+      <div className={`bg-white shadow-md flex flex-col lg:flex-row w-full lg:visible ${burger} justify-between px-[10px] py-[20px] lg:px-[161px] lg:py-2`}>
         {/* Items array rendered here using the array.map js function */}
         {navItems.map((items, index) => {
           return (
