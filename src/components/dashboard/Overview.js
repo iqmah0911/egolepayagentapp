@@ -70,7 +70,7 @@ const Overview = () => {
         <div>
           <div className="flex justify-between items-center">
             <BaseTitle title={"Transactions"}/>
-            <Button style={""} text={"Fund Wallet"} />
+            <Button style={"text-white"} text={"Fund Wallet"} />
           </div>
         </div>
 
