@@ -5,24 +5,6 @@ import Button from "@/components/base_components/Button";
 
 const Confirmation = ({ close, onNext, onPrevious }) => {
 
-//   const selections = [
-//     {
-//       network: "MTN",
-//       icon: "/assets/Untitled/trans/mtn.png",
-//     },
-//     {
-//       network: "Glo",
-//       icon: "/assets/Untitled/trans/glo.png",
-//     },
-//     {
-//       network: "Airtel",
-//       icon: "/assets/Untitled/trans/airtel.png",
-//     },
-//     {
-//       network: "9Mobile",
-//       icon: "/assets/Untitled/trans/9mobile.png",
-//     },
-//   ];
 
   const handleNext = () => {
     //handle api calls and all here

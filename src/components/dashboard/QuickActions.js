@@ -61,21 +61,26 @@ const QuickActions = () => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedActionIndex, setSelectedActionIndex] = useState(null);
-
+  
   const handleClick = (index) => {
-    setSelectedActionIndex(index);
-    setModalIsOpen(true);
+    setSelectedActionIndex(index); // Set the selected action index based on the button click
+    setModalIsOpen(true); // Set modalIsOpen to true to open the modal
   };
+  
 
   const renderModal = () => {
+    // If modalIsOpen is false or no action is selected, return null
     if (!modalIsOpen || selectedActionIndex === null) {
       return null;
     }
-
+  
+    // Get the selected action based on the selectedActionIndex
     const selectedAction = actions[selectedActionIndex];
-
+  
+    // Render the BaseModal component and pass the selected action's component as its child
     return <BaseModal>{selectedAction.component}</BaseModal>;
   };
+  
 
 
   return (
