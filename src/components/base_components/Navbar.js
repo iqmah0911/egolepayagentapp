@@ -1,6 +1,7 @@
-
 import Image from "next/image"; //Image is an in-built component for dispalying images in nextJs
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import Button from "./Button";
 
 //An array of items on the navigation bar
 const navItems = [
@@ -30,10 +31,14 @@ const navItems = [
   },
 ];
 
-export default function Navbar() {
+export default function Navbar({visibleProp, hideOnIndex, visibleOnIndex}) {
   const [toggle, setToggle] = useState(false);
   const [style, setStyle] = useState("");
   const [burger, setBurger] = useState("invisible");
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const isIndexPage = router.pathname === "/";
 
   return (
     //Navigation bar container starts here
@@ -46,14 +51,21 @@ export default function Navbar() {
           height={100}
           alt="logo"
         />
-        <div className="flex gap-5 items-center">
+        <div className={`${visibleOnIndex}`}>
+          <Button style={"text-white font-medium"} text={"Sign in"} />
+        </div>
+        <div className={`flex gap-5 items-center ${hideOnIndex}`}>
           <p className="font-bold">Settings</p>
           <div className="bg-[#FF8F0B] px-2 py-1 rounded-full">
             <p className="text-white">BE</p>
           </div>
           <div
             onClick={() => {
-              setBurger((prevState) => (prevState === "invisible" ? "visible transition duration-700 ease-in-out" : "invisible"));
+              setBurger((prevState) =>
+                prevState === "invisible"
+                  ? "visible transition duration-700 ease-in-out"
+                  : "invisible"
+              );
             }}
             className="gap-1 flex flex-col block lg:hidden"
           >
@@ -66,7 +78,9 @@ export default function Navbar() {
       {/* first layer ends here */}
 
       {/* Second layer starts here */}
-      <div className={`bg-white shadow-md flex flex-col lg:flex-row w-full lg:visible ${burger} justify-between px-[10px] py-[20px] lg:px-[161px] lg:py-2`}>
+      <div
+        className={`bg-white shadow-md flex flex-col lg:flex-row w-full ${visibleProp} ${burger} justify-between px-[10px] py-[20px] lg:px-[161px] lg:py-2`}
+      >
         {/* Items array rendered here using the array.map js function */}
         {navItems.map((items, index) => {
           return (
