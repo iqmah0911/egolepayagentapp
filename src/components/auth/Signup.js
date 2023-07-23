@@ -36,7 +36,7 @@ const Signup = () => {
   return (
     <div className="h-[100vh] flex flex-col items-center justify-center w-full">
       <h1 className="font-bold text-2xl mb-5">Sign up to continue</h1>
-      <div className="bg-white rounded-md shadow-md w-[50%] py-[50px]">
+      <div className="bg-white rounded-md shadow-md w-[85%] lg:w-[50%] py-[50px]">
         <form className="w-full flex flex-col items-center">
           {formFields.map((fields, index) => {
             return (
