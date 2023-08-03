@@ -31,7 +31,7 @@ const navItems = [
   },
 ];
 
-export default function Navbar({visibleProp, hideOnIndex, visibleOnIndex}) {
+export default function Navbar({visibleProp, hideOnIndex, visibleOnIndex, text, ctaClick}) {
   const [toggle, setToggle] = useState(false);
   const [style, setStyle] = useState("");
   const [burger, setBurger] = useState("invisible");
@@ -52,7 +52,7 @@ export default function Navbar({visibleProp, hideOnIndex, visibleOnIndex}) {
           alt="logo"
         />
         <div className={`${visibleOnIndex}`}>
-          <Button style={"text-white font-medium"} text={"Sign in"} />
+          <Button style={"text-white font-medium"} onClick={ctaClick} text={text} />
         </div>
         <div className={`flex gap-5 items-center ${hideOnIndex}`}>
           <p className="font-bold">Settings</p>

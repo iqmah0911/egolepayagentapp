@@ -1,7 +1,5 @@
-
-
 'use client'
-import Signup from "@/components/auth/Signup";
+import Signin from "@/components/auth/Signin";
 import Footer from "@/components/base_components/Footer";
 import Navbar from "@/components/base_components/Navbar";
 import Layout from "@/components/dashboard/Layout";
@@ -14,13 +12,13 @@ export default function Home() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    router.push("/signin");
+    router.push("/");
   };
 
   return (
     <div>
-      <Navbar text={"Sign in"} ctaClick={handleClick} hideOnIndex={"hidden"}/>
-      <Signup/>
+      <Navbar text={"Sign up"} ctaClick={handleClick} hideOnIndex={"hidden"}/>
+      <Signin/>
       {/* <Footer/> */}
     </div>
   )
