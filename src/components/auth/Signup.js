@@ -13,6 +13,7 @@ const Signup = () => {
       type: "email",
       placeholder: "Enter email",
       imageStyle: "hidden",
+      
     },
 
     {
