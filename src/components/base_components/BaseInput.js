@@ -9,10 +9,7 @@ const BaseInput = ({ type, id, name, label, placeholder, image, hidden, classNam
             {label}
         </label>
       <div className='flex items-center justify-between rounded-sm bg-[#F1F1F1] py-2 px-2'>
-        <input type={type} name={name} id={id} className='bg-[#F1F1F1] placeholder:text-sm outline-none h-full w-full' placeholder={placeholder} />
-        <div className={`${imageStyle}`}>
-            <Image src={image} width={10} height={10} alt='...' />
-        </div>
+        <input type={type} name={name} id={id} className='bg-[#F1F1F1] py-2 placeholder:text-sm outline-none h-full w-full' placeholder={placeholder} />
       </div>
     </div>
   )

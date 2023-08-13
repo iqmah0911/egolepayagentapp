@@ -12,7 +12,6 @@ const Signup = () => {
       id: "email",
       type: "email",
       placeholder: "Enter email",
-      imageStyle: "hidden",
     },
 
     {
@@ -20,7 +19,6 @@ const Signup = () => {
       id: "firstname",
       type: "text",
       placeholder: "Enter firstname",
-      imageStyle: "hidden",
     },
 
     {
@@ -28,7 +26,6 @@ const Signup = () => {
       id: "midname",
       type: "text",
       placeholder: "Enter middlename",
-      imageStyle: "hidden",
     },
 
     {
@@ -44,7 +41,6 @@ const Signup = () => {
       id: "mobile",
       type: "number",
       placeholder: "Enter Mobile",
-      imageStyle: "hidden",
     },
 
     {
@@ -52,7 +48,6 @@ const Signup = () => {
       id: "gender",
       type: "text",
       placeholder: "Enter gender",
-      imageStyle: "hidden",
     },
 
     {
@@ -60,7 +55,6 @@ const Signup = () => {
       id: "bvn",
       type: "number",
       placeholder: "Enter your bvn",
-      imageStyle: "hidden",
     },
 
     {
@@ -68,7 +62,6 @@ const Signup = () => {
       id: "dob",
       type: "text",
       placeholder: "yyyy/mm/dd",
-      imageStyle: "hidden",
     },
 
     {
@@ -76,7 +69,6 @@ const Signup = () => {
       id: "password",
       type: "password",
       placeholder: "Enter password",
-      imageStyle: "hidden",
     },
 
     {
@@ -84,7 +76,6 @@ const Signup = () => {
       id: "confirm_password",
       type: "password",
       placeholder: "Enter password again",
-      imageStyle: "hidden",
     },
   ];
 
@@ -105,19 +96,18 @@ const Signup = () => {
           height={650}
         />
       </div>
-      <div className="w-[100%] lg:w-[50%] py-[60px]">
+      <div className="w-[100%] lg:w-[50%] py-[80px]">
         <form autoComplete="off" className="w-full flex flex-col items-center">
           <h1 className="font-bold lg:text-2xl text-lg mb-5">Sign up to continue</h1>
           <div className="lg:grid lg:grid-cols-2 lg:gap-2 lg:w-[60%] flex flex-col items-center w-full">
-            {formFields.map(({ label, id, type, placeholder, imageStyle }, index) => (
+            {formFields.map((items, index) => (
               <BaseInput
                 key={index}
                 className="lg:w-full w-[85%] mb-2 placeholder:text-sm"
-                placeholder={placeholder}
-                imageStyle={imageStyle}
-                type={type}
-                label={label}
-                id={id}
+                placeholder={items.placeholder}
+                type={items.type}
+                id={items.id}
+                label={items.label}
               />
             ))}
           </div>
