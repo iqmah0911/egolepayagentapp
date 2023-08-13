@@ -87,7 +87,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="lg:h-[100vh] h-full flex items-center justify-between w-full bg-white">
+    <div className="lg:h-[100vh] h-[170vh] flex items-center justify-between w-full bg-white">
       <div className="lg:w-[50%] h-full bg-gradient-to-r from-[#fcc000] to-[#FF8000] hidden lg:flex lg:flex-col items-center justify-center">
         <Image
           src={"/assets/Untitled/sign-up.png"}
