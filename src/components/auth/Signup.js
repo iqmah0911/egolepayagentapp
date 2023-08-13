@@ -4,6 +4,7 @@ import Button from "../base_components/Button";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import axios from "../../axios";
+import BaseError from "../base_components/BaseError";
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
@@ -143,16 +144,12 @@ const Signup = () => {
         />
       </div>
       <div className="w-[100%] lg:w-[50%] py-[80px]">
+        {error && <BaseError message={error}  />}
         <form autoComplete="off" className="w-full flex flex-col items-center">
           <h1 className="font-bold lg:text-2xl text-lg mb-5">
             Sign up to continue
           </h1>
           <div className="lg:grid lg:grid-cols-2 lg:gap-2 lg:w-[60%] flex flex-col items-center w-full">
-          {error && (
-            <div className="bg-red-500 text-white p-2 text-center mt-4 rounded">
-              {error}
-            </div>
-          )}
             {formFields.map((items, index) => (
               <BaseInput
                 key={index}
