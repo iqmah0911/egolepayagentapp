@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import BaseInput from "../base_components/BaseInput";
 import Button from "../base_components/Button";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import axios from "../../axios";
 
 const Signup = () => {
-  let formFields = [
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null); // State to manage error message
+  const [formData, setFormData] = useState({
+    email: "",
+    firstname: "",
+    middlename: "",
+    lastname: "",
+    mobile: "",
+    gender: "",
+    bvn: "",
+    dob: "",
+    password: "",
+    stateID: 0,
+  });
 
+  let formFields = [
     {
       label: "Email",
       id: "email",
@@ -23,14 +38,14 @@ const Signup = () => {
 
     {
       label: "Middlename",
-      id: "midname",
+      id: "middlename",
       type: "text",
       placeholder: "Enter middlename",
     },
 
     {
       label: "Lastname",
-      id: "lname",
+      id: "lastname",
       type: "text",
       placeholder: "Enter Lastname",
       imageStyle: "hidden",
@@ -81,9 +96,40 @@ const Signup = () => {
 
   const router = useRouter();
 
-  const handleClick = (e) => {
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
+
+  const handleClick = async (e) => {
     e.preventDefault();
-    router.push("/signin");
+    setLoading(true);
+    setError(null); // Clear any previous errors
+
+    axios
+      .post("/api/Account/Signup", formData)
+      .then((response) => {
+        setLoading(false);
+
+        if (response.data.status === 8) {
+          setError(response.data.message); // Set the error message
+          setTimeout(() => {
+            setError(null); // Clear the error message after 3-5 seconds
+          }, 3000); // Adjust the timeout interval as needed
+        } else {
+          router.push("/signin");
+        }
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError("An error occurred. Please try again."); // Generic error message
+        setTimeout(() => {
+          setError(null);
+        }, 3000);
+      });
   };
 
   return (
@@ -98,8 +144,15 @@ const Signup = () => {
       </div>
       <div className="w-[100%] lg:w-[50%] py-[80px]">
         <form autoComplete="off" className="w-full flex flex-col items-center">
-          <h1 className="font-bold lg:text-2xl text-lg mb-5">Sign up to continue</h1>
+          <h1 className="font-bold lg:text-2xl text-lg mb-5">
+            Sign up to continue
+          </h1>
           <div className="lg:grid lg:grid-cols-2 lg:gap-2 lg:w-[60%] flex flex-col items-center w-full">
+          {error && (
+            <div className="bg-red-500 text-white p-2 text-center mt-4 rounded">
+              {error}
+            </div>
+          )}
             {formFields.map((items, index) => (
               <BaseInput
                 key={index}
@@ -108,12 +161,13 @@ const Signup = () => {
                 type={items.type}
                 id={items.id}
                 label={items.label}
+                onChange={handleChange}
               />
             ))}
           </div>
           <Button
             onClick={handleClick}
-            text="Proceed"
+            text={loading ? "Loading..." : "Proceed"}
             style="text-md lg:w-[60%] w-[85%] mt-5 font-bold p-3 text-white"
           />
         </form>
