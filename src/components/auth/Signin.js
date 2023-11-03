@@ -4,7 +4,7 @@ import Button from '../base_components/Button';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useState } from 'react';
-import { login } from '../base_components/Api';
+import {  loginCall } from '../base_components/Api';
 
 const Signin = () => {
 
@@ -15,10 +15,15 @@ const Signin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await login(phone, password);
-      setMessage(response.message); // The response should include a message or token
+      const response = await loginCall(phone, password);
+      if(response?.result){
+        const token = response?.token;
+        console.log(token)
+        router.push("/dashboard");
+      }
+      console.log(response.message); 
     } catch (error) {
-      setMessage(error.message); // Show the error message if login fails
+      console.log(error.message); 
     }
   };
 
@@ -30,7 +35,7 @@ const Signin = () => {
       type: "number",
       placeholder: "Enter Phone Number",
       imageStyle: "hidden",
-      value : "{phone}",
+      value : (x)=>setphoneNumber(x),
     },
 
     {
@@ -39,17 +44,27 @@ const Signin = () => {
       type: "password",
       placeholder: "Enter password",
       imageStyle: "hidden",
-      value: "{password}"
+      value: (x)=>setPassword(x)
     },
   ];
 
   const router = useRouter();
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    router.push("/dashboard");
+  const handleClick = async () => {
+    const data = await loginCall(phone,password)
+    console.log(data)
+
+    // e.preventDefault(); as
+    // router.push("/dashboard");
   };
 
+    
+
+  const getValue = (e,dt) => {
+    const value = e.target.value
+    dt(value)
+  };
+  
 
   return (
     <div className="h-[100vh] flex items-center justify-between w-full bg-white">
@@ -61,22 +76,39 @@ const Signin = () => {
         <form autoComplete="off" className="w-full flex flex-col items-center" onSubmit={handleSubmit}>
           <h1 className="font-bold lg:text-2xl text-lg mb-5">Welcome back, Sign in to continue</h1>
           <div className="lg:grid lg:grid-cols-1 lg:w-[60%] flex flex-col items-center w-full">
-            {formFields.map((fields, index) => {
+            {/* {formFields.map((fields, index) => {
               return (
                 <BaseInput
                   key={index}
                   className={"lg:w-full w-[85%] mb-2 placeholder:text-sm"}
                   placeholder={fields.placeholder}
                   imageStyle={fields.imageStyle}
+                  onchange={(x)=> fields.value(x)}
                   type={fields.type}
                   label={fields.label}
                   id={fields.id}
                 />
               );
-            })}
+            })} */}
+             <BaseInput
+                  className={"lg:w-full w-[85%] mb-2 placeholder:text-sm"}
+                  placeholder="Enter Phone Number"
+                  imageStyle="hidden"
+                  onchange={(x)=> getValue(x,setphoneNumber)}
+                  type="number"
+                  label={"Phone Number"}
+                />
+                <BaseInput
+                  className={"lg:w-full w-[85%] mb-2 placeholder:text-sm"}
+                  placeholder= "Enter Password"
+                  imageStyle="hidden"
+                  onchange={(x)=> getValue(x,setPassword)}
+                  type="password"
+                  label={"Password"}
+                />
           </div>
           <Button
-            onClick={handleClick}
+            onClick={handleSubmit}
             text={"Proceed"}
             style={"text-md lg:w-[60%] w-[85%] my-5 font-bold p-3 text-white"}
           />
