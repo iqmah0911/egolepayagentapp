@@ -18,8 +18,8 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <Navbar text={"Sign in"} ctaClick={handleClick} hideOnIndex={"hidden"}/>
+    <div className="bg-white">
+      <Navbar text={"Sign in"} ctaClick={handleClick} visibleProp={"invisible"} hideOnIndex={"hidden"}/>
       <Signup/>
       {/* <Footer/> */}
     </div>

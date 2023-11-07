@@ -34,7 +34,7 @@ const navItems = [
 export default function Navbar({visibleProp, hideOnIndex, visibleOnIndex, text, ctaClick}) {
   const [toggle, setToggle] = useState(false);
   const [style, setStyle] = useState("");
-  const [burger, setBurger] = useState("invisible");
+  const [burger, setBurger] = useState("hidden");
   const router = useRouter();
   const pathname = usePathname();
 
@@ -62,9 +62,9 @@ export default function Navbar({visibleProp, hideOnIndex, visibleOnIndex, text, 
           <div
             onClick={() => {
               setBurger((prevState) =>
-                prevState === "invisible"
-                  ? "visible transition duration-700 ease-in-out"
-                  : "invisible"
+                prevState === "hidden"
+                  ? "block transition duration-700 ease-in-out"
+                  : "hidden"
               );
             }}
             className="gap-1 flex flex-col block lg:hidden"
@@ -79,7 +79,7 @@ export default function Navbar({visibleProp, hideOnIndex, visibleOnIndex, text, 
 
       {/* Second layer starts here */}
       <div
-        className={`bg-white shadow-md flex flex-col lg:flex-row w-full ${visibleProp} ${burger} justify-between px-[10px] py-[20px] lg:px-[161px] lg:py-2`}
+        className={`bg-white shadow-md lg:flex lg:flex-row w-full ${visibleProp} ${burger} justify-between px-[10px] py-[20px] lg:px-[161px] lg:py-2`}
       >
         {/* Items array rendered here using the array.map js function */}
         {navItems.map((items, index) => {

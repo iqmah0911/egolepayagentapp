@@ -71,9 +71,8 @@ const Signin = () => {
       <div className="lg:w-[50%] h-full bg-gradient-to-r from-[#fcc000] to-[#FF8000] hidden lg:flex lg:flex-col items-center justify-center">
         <Image src={"/assets/Untitled/sign-up.png"} alt="..." width={650} height={650} />
       </div>
-      <div className="w-[100%] lg:w-[50%] py-[60px]">
-      {message && <p>{message}</p>}
-        <form autoComplete="off" className="w-full flex flex-col items-center" onSubmit={handleSubmit}>
+      <div className="w-[100%] lg:w-[50%] py-[0px]">
+        <form autoComplete="off" className="w-full flex flex-col items-center">
           <h1 className="font-bold lg:text-2xl text-lg mb-5">Welcome back, Sign in to continue</h1>
           <div className="lg:grid lg:grid-cols-1 lg:w-[60%] flex flex-col items-center w-full">
             {/* {formFields.map((fields, index) => {
